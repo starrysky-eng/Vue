@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+    <!-- <style>
+        .class1 {
+            background: #444;
+            color: #eee;
+        }
+    </style>
+    <div id="app">
+        <label for="r1">修改颜色</label><input type="checkbox" v-model="use" id="r1">
+        <br><br>
+        <div v-bind:class="{'class1': use}">
+            v-bind:class 指令
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                use: false
+            }
+        });
+    </script> -->
+
+    <div id="reverse">
+        <!-- 过滤器方法 -->
+        {{message | reverseMessageUseFilters}}
+        <!-- 按钮呼叫普通函数方法 -->
+        <button v-on:click="reversMessage">翻转</button>
+    </div>
+    <script>
+        new Vue({
+            el: '#reverse',
+            data: {
+                message: 'Runoob!'
+            },
+            filters: {
+                reverseMessageUseFilters: function (value) {
+                    if(!value) return;
+                    value = value.toString();
+                    return value.split('').reverse().join('');
+                }
+            },
+            methods: {
+                reverseMessage: function () {
+                    return this.message = this.message.split('').reverse().join('');
+                }
+            }
+
+        })
+    </script>
+
+</body>
+
+</html>

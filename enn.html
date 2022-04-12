@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+
+<body>
+    <!-- テンプレート -->
+    <div id="app">
+        金額：<input type="number" v-model="price">
+        <br><br>
+        {{price}}円
+        <br><br>
+        {{number_format}}円
+    </div>
+
+    <!-- スクリプト -->
+    <script>
+        var app = new Vue({
+            el: "#app",
+            data: {
+                price: 10000
+            },
+            computed :{
+                number_format: function(){
+                    return Number(this.price).toLocaleString();
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

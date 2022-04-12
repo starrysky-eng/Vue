@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>sumAvg</title>
+        <link rel="stylesheet" type="text/css" href="common.css">
+        <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    </head>
+    <body>
+        <table id="app">
+            <tr>
+                <th>科目</th>
+                <th>得点</th>
+            </tr>
+            <tr>
+                <td>数学</td>
+                <td><input type="text" v-model="math"></td>
+            </tr>
+            <tr>
+                <td>英语</td>
+                <td><input type="text" v-model="english"></td>
+            </tr>
+            <tr>
+                <td>化学</td>
+                <td><input type="text" v-model="chemical"></td>
+            </tr>
+            <tr>
+                <td>合计值</td>
+                <td class="td">{{sum}}</td>
+            </tr>
+            <tr>
+                <td>平均值</td>
+                <td class="td">{{avg}}</td>
+            </tr>
+        </table>
+        <script>
+            new Vue({
+                el: '#app',
+                data:{
+                    math: null,
+                    english: null,
+                    chemical: null
+                },
+                computed:{
+                    sum: function(){
+                        return Number(this.math) + Number(this.english) + Number(this.chemical);
+                    },
+                    avg: function(){
+                        return (Number(this.math) + Number(this.english) + Number(this.chemical))/3;
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
