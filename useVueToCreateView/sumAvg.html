@@ -46,7 +46,7 @@
                         return Number(this.math) + Number(this.english) + Number(this.chemical);
                     },
                     avg: function(){
-                        return (Number(this.math) + Number(this.english) + Number(this.chemical))/3;
+                        return parseFloat(parseFloat((Number(this.math) + Number(this.english) + Number(this.chemical))/3).toFixed(1));
                     }
                 }
             })
