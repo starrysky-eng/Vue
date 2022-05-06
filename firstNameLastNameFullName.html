@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Name</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="firstName"><input type="text" v-model="lastName"><br>
+        <p>FirstName {{firstName}}</p>
+        <p>LastName {{lastName}}</p>
+        <p>FullName {{FullName}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                firstName:null,
+                lastName:null,
+                fullName: null,
+            },
+            computed: {
+                FullName: function(){
+                    if(this.lastName){
+                        return this.fullName = this.firstName + this.lastName;
+                    }
+                    else{
+                        return this.fullName = this.firstName;
+                    }
+                }
+            }
+            
+        })
+    </script>
+</body>
+
+</html>

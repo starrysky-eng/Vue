@@ -34,13 +34,19 @@
         <!-- 过滤器方法 -->
         {{message | reverseMessageUseFilters}}
         <!-- 按钮呼叫普通函数方法 -->
-        <button v-on:click="reversMessage">翻转</button>
+        <button v-on:click="reverseMessage">翻转</button>
+        <input type="text" v-model="messageBox">
+        <p>{{newMessage}}</p>
+        <p>{{oldMessage}}</p>
     </div>
     <script>
         new Vue({
             el: '#reverse',
             data: {
-                message: 'Runoob!'
+                message: 'Runoob!',
+                messageBox: '12345',
+                newMessage: null,
+                oldMessage: null
             },
             filters: {
                 reverseMessageUseFilters: function (value) {
@@ -52,6 +58,12 @@
             methods: {
                 reverseMessage: function () {
                     return this.message = this.message.split('').reverse().join('');
+                }
+            },
+            watch: {
+                messageBox: function(newMessage,oldMessage){
+                    this.newMessage = newMessage;
+                    this.oldMessage = oldMessage;
                 }
             }
 
